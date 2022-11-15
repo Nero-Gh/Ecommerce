@@ -53,7 +53,7 @@ class Order(models.Model):
         return self.customer
 
 
-#todo creating orderItems model    
+# creating orderItems model    
 class OrderItem(models.Model):
     order = models.ForeignKey(Order,on_delete = models.CASCADE, related_name='order_items')
     product = models.ForeignKey(Product,on_delete = models.CASCADE)

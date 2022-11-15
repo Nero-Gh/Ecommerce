@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import Vendorlist,VendorDetail,ProductList,ProductDetail,CustomerList
+from .views import Vendorlist,VendorDetail,ProductList,ProductDetail,CustomerList,CustomerDetail
 
 urlpatterns = [
     #url endpoint for vendors
@@ -11,5 +11,6 @@ urlpatterns = [
     path('products/<int:id>',ProductDetail),
 
     #url
-     path('customer/',CustomerList),
+     path('customers/',CustomerList),
+     path('customers/<int:id>',CustomerDetail),
 ]

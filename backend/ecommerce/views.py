@@ -29,7 +29,7 @@ def Vendorlist(request):
 def VendorDetail (request,id):
     try:
         vendor = Vendor.objects.get(id=id)
-    except Vendor.DoesNotExit:
+    except Vendor.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
     
     if request.method == 'GET':
@@ -72,7 +72,7 @@ def ProductList(request):
 def ProductDetail(request,id):
     try:
         product = Product.objects.get(id=id)
-    except Product.DoesNotExit:
+    except Product.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
     
     if request.method == 'GET':
@@ -94,6 +94,8 @@ def ProductDetail(request,id):
 
 
 
+#Customers
+
 @api_view(['GET','POST'])
 def CustomerList(request):
     if request.method == 'GET':
@@ -107,3 +109,28 @@ def CustomerList(request):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+#Customer Id
+
+@api_view(['GET','PUT','DELETE'])
+def CustomerDetail(request,id):
+    try:
+        customer = Customer.objects.get(id=id)
+    except Customer.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    
+    if request.method == 'GET':
+            serializer = CustomerDetailSerializer (customer)
+            return Response(serializer.data)
+
+    elif request.method == 'PUT':
+        serializer = CustomerDetailSerializer(customer, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors , status=status.HTTP_400_BAD_REQUEST)
+
+    elif request.method == 'DELETE':
+        customer.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
