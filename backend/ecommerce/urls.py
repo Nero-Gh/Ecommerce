@@ -1,16 +1,36 @@
 from django.urls import path
-from .views import Vendorlist,VendorDetail,ProductList,ProductDetail,CustomerList,CustomerDetail
+from .views import VendorList,VendorDetail,ProductList,ProductDetail,CustomerList,CustomerDetail,OrderList,OrderDetail,OrderItemList,OrderItemDetail,CustomerAddressViewSet,ProductRatingViewSet
+from rest_framework import  routers
+
+router = routers.DefaultRouter()
+router.register('address',CustomerAddressViewSet)
+router.register('product-rating',ProductRatingViewSet)
+
 
 urlpatterns = [
     #url endpoint for vendors
-    path('vendors/',Vendorlist),
-    path('vendors/<int:id>',VendorDetail),
+    path('vendors/',VendorList.as_view()),
+    path('vendors/<int:id>',VendorDetail.as_view()),
 
-    #url endpoint for prodcut
-    path('products/',ProductList),
-    path('products/<int:id>',ProductDetail),
+    #url endpoint for product
+    path('products/',ProductList.as_view()),
+    path('products/<int:pk>',ProductDetail.as_view()),
 
-    #url
-     path('customers/',CustomerList),
-     path('customers/<int:id>',CustomerDetail),
+
+    #url endpoint for customers
+     path('customers/',CustomerList.as_view()),
+     path('customers/<int:id>',CustomerDetail.as_view()),
+
+
+    #url endpoint for Order
+     path('orders/',OrderList.as_view()),
+     path('orders/<int:pk>/',OrderDetail.as_view()),
+
+     
+    #url endpoint for OrderItem
+     path('orders-item/',OrderItemList.as_view()),
+     path('orders-item/<int:id>',OrderItemDetail.as_view()),
 ]
+
+
+urlpatterns+=router.urls

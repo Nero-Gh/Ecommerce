@@ -1,136 +1,96 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .serializer import VendorSerializer,VendorDetailSerializer,ProductSerializer,CustomerSerializer,CustomerDetailSerializer
-from .models import Vendor,Product,ProductCategory,Customer
+from .serializer import VendorSerializer,VendorDetailSerializer,ProductSerializer,CustomerSerializer,CustomerDetailSerializer,OrderSerializer,OrderItemSerializer,OrderDetailSerializer,CustomerAddressSerializer,ProductRatingSerializer,ProductDetailSerializer
+from .models import Vendor,Product,ProductCategory,Customer,Order,OrderItems,CustomerAddress,ProductRating
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework import generics
+from rest_framework import viewsets
 
 
 # Create your views here.
 
-
-@api_view(['GET','POST'])
-def Vendorlist(request):
-    if request.method == 'GET':
-        vendor = Vendor.objects.all()
-        serializer = VendorSerializer(vendor, many=True)
-        return Response(serializer.data)
-    
-    elif request.method == 'POST':
-        serializer = VendorSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+class VendorList(generics.ListCreateAPIView):
+    queryset = Vendor.objects.all()
+    serializer_class = VendorSerializer
 
 
-@api_view(['GET','PUT','DELETE'])
-def VendorDetail (request,id):
-    try:
-        vendor = Vendor.objects.get(id=id)
-    except Vendor.DoesNotExist:
-        return Response(status=status.HTTP_404_NOT_FOUND)
-    
-    if request.method == 'GET':
-            serializer = VendorDetailSerializer(vendor)
-            return Response(serializer.data)
-
-    elif request.method == 'PUT':
-        serializer = VendorDetailSerializer(vendor, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors , status=status.HTTP_400_BAD_REQUEST)
-
-    elif request.method == 'DELETE':
-        vendor.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+class VendorDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Vendor.objects.all()
+    serializer_class = VendorSerializer
 
 
 
 
 #Product Api Response Code    
 
-@api_view(['GET','POST'])
-def ProductList(request):
-    if request.method == 'GET':
-       product = Product.objects.all()
-       serializer = ProductSerializer(product, many=True)
-       return Response(serializer.data)
+
+class ProductList(generics.ListCreateAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+
+
+class ProductDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductDetailSerializer
+
+
+
+
+#Customer Api Respones code
+
+
+class CustomerList(generics.ListCreateAPIView):
+    queryset = Customer.objects.all()
+    serializer_class = CustomerSerializer
+
+
+class CustomerDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Customer.objects.all()
+    serializer_class = CustomerDetailSerializer
+
+
+
+
+
+#Order Api Respones code
+class OrderList(generics.ListCreateAPIView):
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer
+
+
+class OrderDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = OrderItems.objects.all()
+    serializer_class = OrderDetailSerializer
     
-    elif request.method == 'POST':
-        serializer = ProductSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
-
-@api_view(['GET','PUT','DELETE'])
-def ProductDetail(request,id):
-    try:
-        product = Product.objects.get(id=id)
-    except Product.DoesNotExist:
-        return Response(status=status.HTTP_404_NOT_FOUND)
-    
-    if request.method == 'GET':
-            serializer = ProductSerializer (product)
-            return Response(serializer.data)
-
-    elif request.method == 'PUT':
-        serializer = ProductSerializer(product, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors , status=status.HTTP_400_BAD_REQUEST)
-
-    elif request.method == 'DELETE':
-        product.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+    # def get_queryset(self):
+    #     order_id = self.kwargs['pk']
+    #     orders = Order.objects.get(id = order_id)
+    #     order_items = OrderItems.objects.filter(order=orders)
+    #     return order_items 
 
 
 
 
-
-#Customers
-
-@api_view(['GET','POST'])
-def CustomerList(request):
-    if request.method == 'GET':
-       product = Customer.objects.all()
-       serializer = CustomerSerializer(product, many=True)
-       return Response(serializer.data)
-    
-    elif request.method == 'POST':
-        serializer = CustomerSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+class OrderItemList(generics.ListCreateAPIView):
+    queryset = OrderItems.objects.all()
+    serializer_class = OrderItemSerializer
 
 
-#Customer Id
+class OrderItemDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = OrderItems.objects.all()
+    serializer_class = OrderItemSerializer
 
-@api_view(['GET','PUT','DELETE'])
-def CustomerDetail(request,id):
-    try:
-        customer = Customer.objects.get(id=id)
-    except Customer.DoesNotExist:
-        return Response(status=status.HTTP_404_NOT_FOUND)
-    
-    if request.method == 'GET':
-            serializer = CustomerDetailSerializer (customer)
-            return Response(serializer.data)
 
-    elif request.method == 'PUT':
-        serializer = CustomerDetailSerializer(customer, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors , status=status.HTTP_400_BAD_REQUEST)
 
-    elif request.method == 'DELETE':
-        customer.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+
+class CustomerAddressViewSet(viewsets.ModelViewSet):
+    queryset = CustomerAddress.objects.all()
+    serializer_class = CustomerAddressSerializer
+
+
+
+class ProductRatingViewSet(viewsets.ModelViewSet):
+    queryset = ProductRating.objects.all()
+    serializer_class = ProductRatingSerializer
