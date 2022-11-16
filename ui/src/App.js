@@ -1,38 +1,67 @@
-import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+//?Texting
 
 function App() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <div className="container">
-        <a className="navbar-brand" href="#">
-          Vatican Mart
+    <nav className="bg-blue-500 border-dark-200 px-2 sm:px-4 py-2.5 rounded">
+      <div className="container flex flex-wrap items-center justify-between mx-auto">
+        <a href="https://flowbite.com/" className="flex items-center">
+          <img
+            src="https://flowbite.com/docs/images/logo.svg"
+            className="h-6 mr-3 sm:h-9"
+            alt="Flowbite Logo"
+          />
+          <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
+            Vatican Mart
+          </span>
         </a>
         <button
-          className="navbar-toggler"
+          data-collapse-toggle="navbar-default"
           type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
+          className="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          aria-controls="navbar-default"
           aria-expanded="false"
-          aria-label="Toggle navigation"
         >
-          <span className="navbar-toggler-icon"></span>
+          <span className="sr-only">Open main menu</span>
+          <svg
+            className="w-6 h-6"
+            aria-hidden="true"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
         </button>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
+        <div className="hidden w-full md:block md:w-auto" id="navbar-default">
+          <ul className="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 text-white">
+            <li>
+              <a
+                href="#"
+                className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-100 md:p-0 dark:text-white "
+                aria-current="page"
+              >
                 Home
               </a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Products
+            <li>
+              <a
+                href="#"
+                className="block py-2 pl-3 pr-4 text-blue-300 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-100 md:p-0"
+              >
+                Product
               </a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link">Categories</a>
+            <li>
+              <a
+                href="#"
+                className="block py-2 pl-3 pr-4 text-blue-300 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-100 md:p-0"
+              >
+                Category
+              </a>
             </li>
           </ul>
         </div>
