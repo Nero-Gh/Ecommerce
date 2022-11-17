@@ -7,14 +7,14 @@
   - Homepage
 
     - Header
-    - Latest Project
+    - Latest Products
     - Popular Categories (According product download count)
-    - Popular Project (According product download count)
+    - Popular Products (According product download count)
     - Popular Sellers (According product download count)
     - Footer
 
   - All Category list
-  - All Product lisy according to category
+  - All Product list according to category
     - Sort according to price, alphabet,latest, views
   - Product Detail
     - Customer Rating & Reviews
