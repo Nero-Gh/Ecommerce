@@ -70,5 +70,5 @@
 - ReactJs 18.2
   - axios
   - react-router-dom
-  - Bootstrap 15.2
+  - Tailiwind
   - etc
