@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .serializer import VendorSerializer,VendorDetailSerializer,ProductSerializer,CustomerSerializer,CustomerDetailSerializer,OrderSerializer,OrderItemSerializer,OrderDetailSerializer,CustomerAddressSerializer,ProductRatingSerializer,ProductDetailSerializer
+from .serializer import VendorSerializer,VendorDetailSerializer,ProductSerializer,CustomerSerializer,CustomerDetailSerializer,OrderSerializer,OrderItemSerializer,OrderDetailSerializer,CustomerAddressSerializer,ProductRatingSerializer,ProductDetailSerializer,ProductCategorySerializer
 from .models import Vendor,Product,ProductCategory,Customer,Order,OrderItems,CustomerAddress,ProductRating
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -94,3 +94,10 @@ class CustomerAddressViewSet(viewsets.ModelViewSet):
 class ProductRatingViewSet(viewsets.ModelViewSet):
     queryset = ProductRating.objects.all()
     serializer_class = ProductRatingSerializer
+
+
+
+
+class ProductCategoryViewSet(viewsets.ModelViewSet):
+    queryset = ProductCategory.objects.all()
+    serializer_class = ProductCategorySerializer

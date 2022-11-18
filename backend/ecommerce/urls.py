@@ -1,10 +1,11 @@
 from django.urls import path
-from .views import VendorList,VendorDetail,ProductList,ProductDetail,CustomerList,CustomerDetail,OrderList,OrderDetail,OrderItemList,OrderItemDetail,CustomerAddressViewSet,ProductRatingViewSet
+from .views import VendorList,VendorDetail,ProductList,ProductDetail,CustomerList,CustomerDetail,OrderList,OrderDetail,OrderItemList,OrderItemDetail,CustomerAddressViewSet,ProductRatingViewSet,ProductCategoryViewSet
 from rest_framework import  routers
 
 router = routers.DefaultRouter()
 router.register('address',CustomerAddressViewSet)
 router.register('product-rating',ProductRatingViewSet)
+router.register('product-category',ProductCategoryViewSet)
 
 
 urlpatterns = [

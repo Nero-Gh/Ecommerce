@@ -1,14 +1,12 @@
 from rest_framework import serializers
 from .models import Product,ProductCategory,Vendor,Customer,Order,OrderItems,CustomerAddress,ProductRating
 
-
+#!Vendor Serializor
 class VendorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Vendor
         depth = 1
         fields = ['user','address']
-
-
 
 class VendorDetailSerializer(serializers.ModelSerializer):
     class Meta:
@@ -19,7 +17,7 @@ class VendorDetailSerializer(serializers.ModelSerializer):
         super(VendorDetailSerializer, self).__init__(*args, **kwargs)
         self.Meta.depth = 1
 
-
+#!Product Serializor
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
@@ -36,12 +34,12 @@ class ProductDetailSerializer(serializers.ModelSerializer):
 
 class ProductCategorySerializer(serializers.ModelSerializer):
     class Meta:
-        model = Product
+        model = ProductCategory
         # depth = 1
         fields = "__all__"
 
 
-
+#!Customer Serializor
 class CustomerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Customer
@@ -60,6 +58,7 @@ class CustomerDetailSerializer(serializers.ModelSerializer):
         self.Meta.depth = 1
 
 
+#!Order Serializor
 class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
@@ -80,6 +79,8 @@ class OrderItemSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+
+#!CustomerAddress Serializor
 class CustomerAddressSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomerAddress
@@ -88,6 +89,7 @@ class CustomerAddressSerializer(serializers.ModelSerializer):
 
 
 
+#!Product Rating Serializor
 class ProductRatingSerializer(serializers.ModelSerializer):
     class Meta:
         model =ProductRating

@@ -11,6 +11,7 @@
     - Popular Categories (According product download count)
     - Popular Products (According product download count)
     - Popular Sellers (According product download count)
+    - Review & Rating
     - Footer
 
   - All Category list
