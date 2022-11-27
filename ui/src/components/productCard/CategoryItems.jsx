@@ -2,10 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Card from "../Card";
 
-const CategoryCard = ({ image, title, imageAlt, downloads, cats }) => {
+const CategoryItems = ({ image, title, imageAlt, downloads, cats }) => {
   return (
     <Card>
-      <Link to="/categories">
+      <Link to="/categories/shoes/1">
         <img
           className="p-8 rounded-t-lg w-52 h-52 m-auto"
           src={image}
@@ -33,4 +33,4 @@ const CategoryCard = ({ image, title, imageAlt, downloads, cats }) => {
   );
 };
 
-export default CategoryCard;
+export default CategoryItems;

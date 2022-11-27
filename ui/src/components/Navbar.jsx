@@ -78,6 +78,14 @@ const Navbar = () => {
                 Category
               </Link>
             </li>
+            <li>
+              <Link
+                to="/checkout"
+                className="block py-2 pl-3 pr-4 text-blue-300 rounded hover:bg-blue-900 hover:text-white md:hover:bg-transparent md:border-0 md:hover:text-blue-100 md:p-0"
+              >
+                My Cart(5)
+              </Link>
+            </li>
           </ul>
         </div>
       </div>

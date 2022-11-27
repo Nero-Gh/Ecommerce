@@ -1,21 +1,22 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Card from "../Card";
 const ProductCard = ({ image, title, price, imageAlt }) => {
   return (
     <Card>
-      <a href="#">
+      <Link to="/products/product-detail/1">
         <img
           className="p-8 rounded-t-lg w-52 h-52 m-auto"
           src={image}
           alt={imageAlt}
         />
-      </a>
+      </Link>
       <div className="px-5 pb-5">
-        <a href="#">
+        <Link to="/products/product-detail/1">
           <h5 className="text-3x1 font-semibold tracking-tight text-gray-900 dark:text-dark">
             {title}
           </h5>
-        </a>
+        </Link>
         <div className="flex items-center mt-2.5 mb-5">
           <svg
             aria-hidden="true"
@@ -76,22 +77,22 @@ const ProductCard = ({ image, title, price, imageAlt }) => {
             Ghc {price}
           </span>
           <div>
-            <a
-              href="#"
+            <Link
+              to="/products/product-detail/1"
               className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mr-1"
             >
               <button title="Add to cart">
                 <i className="fa-solid fa-cart-shopping"></i>
               </button>
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              to="/products/product-detail/1"
               className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-2 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
             >
               <button title="Add Wishlist">
                 <i className="fa-solid fa-heart"></i>
               </button>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

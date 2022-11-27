@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import CategoryCard from "../components/productCard/CategoryCard";
 import ProductCard from "../components/productCard/ProductCard";
 import Reviews from "../components/Reviews/Reviews";
@@ -11,7 +11,7 @@ const Home = () => {
         {/* Latest Product Section  */}
         <h2 className="text-xl font-bold ">Latest Product</h2>
         <Link
-          to="#"
+          to="/products"
           className="bg-gray-800 py-1 px-4 rounded text-white hover:py-2 hover:px-5 transition-all"
         >
           View All Products <i class="fa-solid fa-arrow-right"></i>
@@ -68,12 +68,12 @@ const Home = () => {
 
       <div className="flex align-middle justify-between mt-10 ">
         <h2 className="text-xl font-bold ">Popular Products</h2>
-        <a
-          href="#"
+        <Link
+          to="/products"
           className="bg-gray-800 py-1 px-4 rounded text-white hover:py-2 hover:px-5 transition-all"
         >
           View All Products <i class="fa-solid fa-arrow-right"></i>
-        </a>
+        </Link>
       </div>
       <div className="mt-4 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 max-sm:grid-cols-1 gap-4 justify-items-center">
         <ProductCard title="Nike Shoe" price="25.00" imageAlt="Nike Shoe" />
