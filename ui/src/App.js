@@ -16,6 +16,8 @@ import Orders from "./pages/Orders";
 import OrderSuccess from "./pages/OrderSuccess";
 import OrderFail from "./pages/OrderFail";
 import Profile from "./pages/Profile";
+import ChangePassword from "./pages/ChangePassword";
+import Wishlist from "./pages/Wishlist";
 
 function App() {
   return (
@@ -39,6 +41,8 @@ function App() {
         <Route path="/customer/Dashboard" element={<Dashboard />} />
         <Route path="/customer/orders" element={<Orders />} />
         <Route path="/customer/profile" element={<Profile />} />
+        <Route path="/customer/change-password" element={<ChangePassword />} />
+        <Route path="/customer/wishlist" element={<Wishlist />} />
         <Route path="/order/success" element={<OrderSuccess />} />
         <Route path="/order/fail" element={<OrderFail />} />
       </Routes>
