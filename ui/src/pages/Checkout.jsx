@@ -28,8 +28,10 @@ const Checkout = () => {
             <tr className="bg-gray-100">
               <td className="pl-2">1</td>
               <td>
-                <img src={image} alt="some image" className="w-16 h-16" />
-                <p>Sneakers</p>
+                <Link to="/products">
+                  <img src={image} alt="some image" className="w-16 h-16" />
+                  <p>Sneakers</p>
+                </Link>
               </td>
               <td>Ghc 102.00</td>
             </tr>
