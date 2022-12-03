@@ -86,7 +86,6 @@ const Navbar = () => {
                 My Cart(5)
               </Link>
             </li>
-
             <li className="flex ">
               <Link
                 to="/customer/register"
@@ -111,6 +110,39 @@ const Navbar = () => {
                 className="block py-2 pl-3  pr-4 text-blue-300 rounded hover:bg-blue-900 hover:text-white md:hover:bg-transparent md:border-0 md:hover:text-blue-100 md:p-0"
               >
                 Logout
+              </Link>
+            </li>
+
+            <li className="flex ">
+              <Link
+                to="/seller/register"
+                className="block py-2 pl-3 mr-2 pr-4 text-blue-300 rounded hover:bg-blue-900 hover:text-white md:hover:bg-transparent md:border-0 md:hover:text-blue-100 md:p-0"
+              >
+                Register
+              </Link>
+              <Link
+                to="/seller/login"
+                className="block py-2 pl-3 pr-4 mr-2 text-blue-300 rounded hover:bg-blue-900 hover:text-white md:hover:bg-transparent md:border-0 md:hover:text-blue-100 md:p-0"
+              >
+                Login
+              </Link>
+              <Link
+                to="/seller/dashboard"
+                className="block py-2 pl-3 pr-4 mr-2 text-blue-300 rounded hover:bg-blue-900 hover:text-white md:hover:bg-transparent md:border-0 md:hover:text-blue-100 md:p-0"
+              >
+                Dashboard
+              </Link>
+              <Link
+                to="/seller/logout"
+                className="block py-2 pl-3  pr-4 text-blue-300 rounded hover:bg-blue-900 hover:text-white md:hover:bg-transparent md:border-0 md:hover:text-blue-100 md:p-0"
+              >
+                Logout{" "}
+              </Link>
+              <Link
+                to="/new/orders"
+                className="block py-2 pl-3 pr-4 text-blue-300 rounded hover:bg-blue-900 hover:text-white md:hover:bg-transparent md:border-0 md:hover:text-blue-100 md:p-0"
+              >
+                New Orders(5)
               </Link>
             </li>
           </ul>
